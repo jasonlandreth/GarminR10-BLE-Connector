@@ -1,0 +1,45 @@
+name: Bug report
+description: Report a problem connecting to or reading data from the Approach R10
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe the problem and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Pair the R10 in Windows Bluetooth settings
+        2. Run GarminR10Connector.TestConsole
+        3. ...
+    validations:
+      required: true
+  - type: input
+    id: windows-version
+    attributes:
+      label: Windows version
+      placeholder: "Windows 11 24H2 (build 26100)"
+    validations:
+      required: true
+  - type: input
+    id: adapter
+    attributes:
+      label: Bluetooth adapter
+      placeholder: "Intel AX211"
+  - type: input
+    id: firmware
+    attributes:
+      label: R10 firmware version
+      description: Shown in the Connected event output.
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: Paste log4net output. This will be rendered as code.
+      render: text

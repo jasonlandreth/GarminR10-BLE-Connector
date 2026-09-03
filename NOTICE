@@ -1,0 +1,28 @@
+GarminR10-BLE-Connector
+Copyright (c) 2026 Jason Landreth
+
+This product includes software developed by Jason Landreth.
+
+Licensed under the Apache License, Version 2.0. See the LICENSE file.
+SPDX-License-Identifier: Apache-2.0
+
+---
+
+## Third-party attributions
+
+This product contains portions of code derived from gsp-r10-adapter by mholow,
+which is licensed under the MIT License. Those portions remain under the MIT
+License, and their copyright notice is reproduced in THIRD-PARTY-NOTICES.md and
+in the header of each affected source file.
+
+    Copyright (c) 2022 mholow
+    https://github.com/mholow/gsp-r10-adapter
+
+See THIRD-PARTY-NOTICES.md for the full text and for the licenses of the NuGet
+packages this product depends on.
+
+---
+
+This project is not affiliated with, endorsed by, or sponsored by Garmin Ltd.
+"Garmin" and "Approach" are trademarks of Garmin Ltd. or its subsidiaries and
+are used here only to describe device compatibility.

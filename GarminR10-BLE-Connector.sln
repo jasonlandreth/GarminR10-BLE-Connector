@@ -1,0 +1,42 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 18
+VisualStudioVersion = 18.9.12105.275
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GarminR10Connector", "GarminR10Connector\GarminR10Connector.csproj", "{BB7226C0-DEBC-4994-B389-CA809458F1E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GarminR10Connector.TestConsole", "GarminR10Connector.TestConsole\GarminR10Connector.TestConsole.csproj", "{AFE19BF5-52D7-4082-A7F3-74034342676B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsExample", "WinFormsExample\WinFormsExample.csproj", "{269B90FC-7081-4596-977F-D2DB3BB307C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GarminR10Connector.WinFormExample", "GarminR10Connector.WinFormExample\GarminR10Connector.WinFormExample.csproj", "{EC7A393F-1E90-4D75-A203-67BEA577E89B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB7226C0-DEBC-4994-B389-CA809458F1E9}.Debug|x64.ActiveCfg = Debug|x64
+		{BB7226C0-DEBC-4994-B389-CA809458F1E9}.Debug|x64.Build.0 = Debug|x64
+		{BB7226C0-DEBC-4994-B389-CA809458F1E9}.Release|x64.ActiveCfg = Release|x64
+		{BB7226C0-DEBC-4994-B389-CA809458F1E9}.Release|x64.Build.0 = Release|x64
+		{AFE19BF5-52D7-4082-A7F3-74034342676B}.Debug|x64.ActiveCfg = Debug|x64
+		{AFE19BF5-52D7-4082-A7F3-74034342676B}.Debug|x64.Build.0 = Debug|x64
+		{AFE19BF5-52D7-4082-A7F3-74034342676B}.Release|x64.ActiveCfg = Release|x64
+		{AFE19BF5-52D7-4082-A7F3-74034342676B}.Release|x64.Build.0 = Release|x64
+		{269B90FC-7081-4596-977F-D2DB3BB307C5}.Debug|x64.ActiveCfg = Debug|x64
+		{269B90FC-7081-4596-977F-D2DB3BB307C5}.Debug|x64.Build.0 = Debug|x64
+		{269B90FC-7081-4596-977F-D2DB3BB307C5}.Release|x64.ActiveCfg = Release|x64
+		{269B90FC-7081-4596-977F-D2DB3BB307C5}.Release|x64.Build.0 = Release|x64
+		{EC7A393F-1E90-4D75-A203-67BEA577E89B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{EC7A393F-1E90-4D75-A203-67BEA577E89B}.Debug|x64.Build.0 = Debug|Any CPU
+		{EC7A393F-1E90-4D75-A203-67BEA577E89B}.Release|x64.ActiveCfg = Release|Any CPU
+		{EC7A393F-1E90-4D75-A203-67BEA577E89B}.Release|x64.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2300CBBC-8AAC-4F4F-9D07-1EA37AC947CA}
+	EndGlobalSection
+EndGlobal
