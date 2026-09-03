@@ -1,4 +1,4 @@
-﻿/*
+/*
  * SPDX-License-Identifier: Apache-2.0
  *
  * Copyright (c) 2026 Jason Landreth
@@ -49,6 +49,7 @@ using InTheHand.Bluetooth;
 using LaunchMonitor.Proto;
 using System.Text;
 using GarminR10Connector.Util;
+using GarminR10Connector.Utilities;
 
 namespace GarminR10Connector.Ble
 {

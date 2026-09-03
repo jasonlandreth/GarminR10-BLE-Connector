@@ -1,4 +1,4 @@
-﻿namespace GarminR10Connector.WinFormExample.Controls
+namespace GarminR10Connector.WinFormExample.Controls
 {
     sealed partial class MetricsCard
     {
@@ -9,7 +9,7 @@
 
         private System.Windows.Forms.Label _lblValue;
         private System.Windows.Forms.Label _lblMetricName;
-        private System.Windows.Forms.Label _lblResultUnit;
+        private System.Windows.Forms.Label _lblUnitType;
 
         /// <summary> 
         /// Clean up any resources being used.
@@ -34,7 +34,7 @@
         {
             _lblValue = new Label();
             _lblMetricName = new Label();
-            _lblResultUnit = new Label();
+            _lblUnitType = new Label();
             checkBox = new CheckBox();
             panelBase = new Panel();
             panelBase.SuspendLayout();
@@ -66,14 +66,14 @@
             // 
             // _lblResultUnit
             // 
-            _lblResultUnit.Font = new Font("Segoe UI", 7.5F);
-            _lblResultUnit.ForeColor = Color.FromArgb(140, 155, 170);
-            _lblResultUnit.Location = new Point(229, 173);
-            _lblResultUnit.Name = "_lblResultUnit";
-            _lblResultUnit.Size = new Size(59, 36);
-            _lblResultUnit.TabIndex = 2;
-            _lblResultUnit.Text = "rpm";
-            _lblResultUnit.TextAlign = ContentAlignment.MiddleCenter;
+            _lblUnitType.Font = new Font("Segoe UI", 7.5F);
+            _lblUnitType.ForeColor = Color.FromArgb(140, 155, 170);
+            _lblUnitType.Location = new Point(229, 173);
+            _lblUnitType.Name = "_lblUnitType";
+            _lblUnitType.Size = new Size(59, 36);
+            _lblUnitType.TabIndex = 2;
+            _lblUnitType.Text = "rpm";
+            _lblUnitType.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // checkBox
             // 
@@ -88,7 +88,7 @@
             // panelBase
             // 
             panelBase.Controls.Add(_lblMetricName);
-            panelBase.Controls.Add(_lblResultUnit);
+            panelBase.Controls.Add(_lblUnitType);
             panelBase.Controls.Add(_lblValue);
             panelBase.Dock = DockStyle.Top;
             panelBase.Location = new Point(0, 0);

@@ -1,4 +1,4 @@
-﻿/*
+/*
  * SPDX-License-Identifier: Apache-2.0
  *
  * Copyright (c) 2026 Jason Landreth
@@ -44,12 +44,14 @@
  * https://github.com/mholow/gsp-r10-adapter
  */
 
-namespace GarminR10Connector.Util
+using GarminR10Connector.Util;
+
+namespace GarminR10Connector.Utilities
 {
   /// <summary>
   /// Extension methods for converting between hex strings and byte sequences.
   /// </summary>
-  public static class Bytes
+  public static class ByteExtensionMethods
   {
     /// <summary>
     /// Converts a hex string (no separators, e.g. "0A1B2C") into a byte array.
@@ -72,7 +74,7 @@ namespace GarminR10Connector.Util
     /// </summary>
     /// <param name="bytes">The bytes to convert.</param>
     /// <returns>The hex string.</returns>
-    public static string ToHexString(this byte[] bytes) => BitConverter.ToString(bytes).Replace("-", string.Empty);
+    public static string ToHexString(this byte[] Bytes) => BitConverter.ToString(Bytes).Replace("-", string.Empty);
 
     /// <summary>
     /// Converts a byte sequence into an uppercase hex string with no separators.

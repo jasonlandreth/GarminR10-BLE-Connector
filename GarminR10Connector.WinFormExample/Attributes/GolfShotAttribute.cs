@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright (c) 2026 Jason Landreth
  *
  * Licensed under the Apache License, Version 2.0 (the ""License"");
@@ -14,36 +14,53 @@
  * limitations under the License.
  */
 
+using System.ComponentModel;
+
 namespace GarminR10Connector.WinFormExample.Attributes;
 
 /// <summary>
 /// Attribute for enum members representing golf shot metrics.
 /// </summary>
 [AttributeUsage(AttributeTargets.Field, AllowMultiple = false, Inherited = false)]
-public class GolfShotAttribute : Attribute
+public class GolfShotAttribute : DescriptionAttribute
 {
-  /// <summary>
-  /// Initializes a new instance of the <see cref="GolfShotAttribute"/> class.
-  /// </summary>
-  /// <param name="description">
-  /// Human-readable description for the enum value.
-  /// </param>
-  /// <param name="ResultUnit">
-  /// Logical result unit label for the enum value.
-  /// </param>
-  public GolfShotAttribute(string Description, string ResultUnit)
-  {
-    this.Description = Description;
-    this.ResultUnit = ResultUnit;
-  }
+    /// <summary>
+    /// Result type label.
+    /// </summary>
+    public string UnitType { get; }
 
-  /// <summary>
-  /// Human-readable description.
-  /// </summary>
-  public string Description { get; }
+    /// <summary>
+    /// Result type label.
+    /// </summary>
+    public string Title { get; }
 
-  /// <summary>
-  /// Result unit label.
-  /// </summary>
-  public string ResultUnit { get; }
+    /// <summary>
+    /// Initializes a new instance of the <see cref="GolfShotAttribute"/> class.
+    /// </summary>
+    /// <param name="description">
+    /// Human-readable description for the enum value.
+    /// </param>
+    /// <param name="UnitType">
+    /// Logical result unit label for the enum value.
+    /// </param>
+    /// <param name="Title">
+    /// Title for the enum value.
+    /// </param>
+    public GolfShotAttribute(string Description, string UnitType, string Title) : base(Description)
+    {
+        this.UnitType = UnitType;
+        this.Title = Title;
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="GolfShotAttribute"/> class.
+    /// </summary>
+    /// <param name="description"> Human-readable description for the enum value. </param>
+    /// <param name="UnitType"> Logical result unit label for the enum value. </param>
+    /// <param name="Title"> Title for the enum value. </param>
+    public GolfShotAttribute(string Description, string UnitType) : base(Description)
+    {
+        this.UnitType = UnitType;
+        this.Title = String.Empty;
+    }
 }

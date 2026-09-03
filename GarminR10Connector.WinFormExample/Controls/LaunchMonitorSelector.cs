@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright (c) 2026 Jason Landreth
  *
  * Licensed under the Apache License, Version 2.0 (the ""License"");
@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
-using GarminR10Connector.WinFormExample.EventArgs;
+using GarminR10Connector.WinFormExample.Events;
 using System.ComponentModel;
 
-namespace GarminR10Connector.WinFormExample
+namespace GarminR10Connector.WinFormExample.Controls
 {
-  public partial class LaunchMonitorSelectorControl : UserControl
+  public partial class LaunchMonitorSelector : UserControl
   {
     private LaunchMonitorType _selectedLaunchMonitorType;
 
-    public LaunchMonitorSelectorControl()
+    public LaunchMonitorSelector()
     {
       InitializeComponent();
     }

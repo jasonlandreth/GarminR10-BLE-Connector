@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright (c) 2026 Jason Landreth
  *
  * Licensed under the Apache License, Version 2.0 (the ""License"");
@@ -14,24 +14,22 @@
  * limitations under the License.
  */
 
+using System.ComponentModel;
+
 namespace GarminR10Connector.Attributes;
 
 /// <summary>
 /// Attribute for enum members representing golf shot metrics.
 /// </summary>
 [AttributeUsage(AttributeTargets.Field, AllowMultiple = false, Inherited = false)]
-public class GarminShotAttribute : Attribute
+public class GarminShotAttribute : DescriptionAttribute
 {
-
-  /// <summary>
-  /// Human-readable description.
-  /// </summary>
-  public string Description { get; }
+ 
 
   /// <summary>
   /// Result type label.
   /// </summary>
-  public string ResultUnit { get; }
+  public string UnitType { get; }
 
   /// <summary>
   /// Result type label.
@@ -44,13 +42,12 @@ public class GarminShotAttribute : Attribute
   /// <param name="description">
   /// Human-readable description for the enum value.
   /// </param>
-  /// <param name="ResultUnit">
+  /// <param name="UnitType">
   /// Logical result type label for the enum value.
   /// </param>
-  public GarminShotAttribute(string Description, string ResultUnit)
-  {
-    this.Description = Description;
-    this.ResultUnit = ResultUnit;
+  public GarminShotAttribute(string Description, string UnitType):base(Description)
+  { 
+    this.UnitType = UnitType;
     this.Title = String.Empty;
   }
 
@@ -58,21 +55,20 @@ public class GarminShotAttribute : Attribute
   /// Initializes a new instance of the <see cref="GarminShotAttribute"/> class.
   /// </summary>
   /// <param name="Description"></param>
-  /// <param name="ResultUnit"></param>
+  /// <param name="UnitType"></param>
   /// <param name="Title"></param>
   /// Human-readable description for the enum value.
   /// </param>
-  /// <param name="ResultUnit">
+  /// <param name="UnitType">
   /// Logical result unit label for the enum value.
   /// </param>
   /// <param name="Title">
   /// Human-readable title for the enum value.
   /// </param>
-  public GarminShotAttribute(string Description, string ResultUnit, string Title)
-  {
-    this.ResultUnit = ResultUnit;
-    this.Title = Title;
-    this.Description = Description;
+  public GarminShotAttribute(string Description, string UnitType, string Title) : base(Description)
+    {
+    this.UnitType = UnitType;
+    this.Title = Title; 
   }
 
 }

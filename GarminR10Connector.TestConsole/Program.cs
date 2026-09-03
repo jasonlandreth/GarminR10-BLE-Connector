@@ -14,6 +14,7 @@
 
 using GarminR10Connector;
 using System.Threading;
+using GarminR10Connector.ShotDataResults;
 
 log4net.Config.XmlConfigurator.Configure(new FileInfo("log4net.config"));
 
@@ -172,7 +173,7 @@ static void PrintShot(int shotNumber, ShotData shot)
         Console.WriteLine($"  Horizontal Launch Dir:   {ball.HorizontalLaunchDirection,8:F1} deg");
         Console.WriteLine($"  Spin Axis:               {ball.SpinAxis,8:F1} deg");
         Console.WriteLine($"  Total Spin:              {ball.TotalSpin,8:F0} rpm");
-        Console.WriteLine($"  Backspin:                {ball.Backspin,8:F0} rpm");
+        Console.WriteLine($"  Backspin:                {ball.BackSpin,8:F0} rpm");
         Console.WriteLine($"  Sidespin:                {ball.SideSpin,8:F0} rpm");
         Console.WriteLine($"  Spin Calc Type:          {ball.SpinCalcType,8}");
     }

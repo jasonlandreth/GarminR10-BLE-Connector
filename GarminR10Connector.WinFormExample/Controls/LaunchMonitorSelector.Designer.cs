@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright (c) 2026 Jason Landreth
  *
  * Licensed under the Apache License, Version 2.0 (the ""License"");
@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-namespace GarminR10Connector.WinFormExample
+namespace GarminR10Connector.WinFormExample.Controls
 {
-  partial class LaunchMonitorSelectorControl
+  partial class LaunchMonitorSelector
   {
     /// <summary>
     /// Required designer variable.

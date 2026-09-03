@@ -6,7 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <EnableWindowsTargeting>true</EnableWindowsTargeting>
-    <Platforms>x64</Platforms>
+    <Platforms>x64;AnyCPU</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
@@ -22,5 +22,8 @@
   <ItemGroup>
     <Protobuf Include="Proto/LaunchMonitor.proto" ProtoRoot="Proto" GrpcServices="None" />
   </ItemGroup>
-
+<ItemGroup>
+  <InternalsVisibleTo Include="GarminR10Connector.TestConsole" />
+  <InternalsVisibleTo Include="GarminR10Connector.WinFormExample" />
+</ItemGroup>
 </Project>

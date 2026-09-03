@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright (c) 2026 Jason Landreth
  *
  * Licensed under the Apache License, Version 2.0 (the ""License"");
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-namespace GarminR10Connector.WinFormExample.EventArgs
+namespace GarminR10Connector.WinFormExample.Events
 {
   public sealed class LaunchMonitorSelectionEventArgs(LaunchMonitorType selectedLaunchMonitorType) : System.EventArgs
   {
