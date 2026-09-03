@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright (c) 2026 Jason Landreth
  *
  * Licensed under the Apache License, Version 2.0 (the ""License"");
@@ -22,20 +22,20 @@ namespace GarminR10Connector.WinFormExample.Utilities;
 
 public static class EnumExtensionMethods
 {
-  /// <summary>
-  /// Gets an attribute from an enum member.
-  /// </summary>
-  /// <typeparam name="TEnum">Enum type. </typeparam>
-  /// <typeparam name="TAttribute"> Attribute type.</typeparam>
-  /// <param name="value"> Enum value.</param>
-  /// <returns>
-  /// Attribute instance if found; otherwise <c>null</c>.
-  /// </returns>
-  public static TAttribute? GetCustomAttribute<TEnum, TAttribute>(this TEnum value)
+    /// <summary>
+    /// Gets an attribute from an enum member.
+    /// </summary>
+    /// <typeparam name="TEnum">Enum type. </typeparam>
+    /// <typeparam name="TAttribute"> Attribute type.</typeparam>
+    /// <param name="Value"> Enum value.</param>
+    /// <returns>
+    /// Attribute instance if found; otherwise <c>null</c>.
+    /// </returns>
+    public static TAttribute? GetCustomAttribute<TEnum, TAttribute>(this TEnum Value)
       where TEnum : struct, Enum
       where TAttribute : GolfShotAttribute
   {
-    string name = value.ToString();
+    string name = Value.ToString();
     MemberInfo[] members = typeof(TEnum).GetMember(name);
     if (members.Length == 0)
     {
@@ -45,46 +45,46 @@ public static class EnumExtensionMethods
     return members[0].GetCustomAttribute<TAttribute>(inherit: false);
   }
 
-  /// <summary>
-  /// Gets the golf-shot description from <see cref="GolfShotAttribute"/>.
-  /// </summary>
-  /// <typeparam name="TEnum"> Enum type. </typeparam>
-  /// <param name="value"> Enum value. </param>
-  /// <returns>
-  /// Description text if present; otherwise <c>string.Empty</c>.
-  /// </returns>
-  public static string GetGolfShotDescription<TEnum>(this TEnum value)
+    /// <summary>
+    /// Gets the golf-shot description from <see cref="GolfShotAttribute"/>.
+    /// </summary>
+    /// <typeparam name="TEnum"> Enum type. </typeparam>
+    /// <param name="Value"> Enum value. </param>
+    /// <returns>
+    /// Description text if present; otherwise <c>string.Empty</c>.
+    /// </returns>
+    public static string GeShotDescription<TEnum>(this TEnum Value)
       where TEnum : struct, Enum
   {
-    GolfShotAttribute? attribute = value.GetCustomAttribute<TEnum, GolfShotAttribute>();
+    GolfShotAttribute? attribute = Value.GetCustomAttribute<TEnum, GolfShotAttribute>();
     return attribute?.Description ?? string.Empty;
   }
 
-  /// <summary>
-  /// Gets the golf-shot result type from <see cref="GolfShotAttribute"/>.
-  /// </summary>
-  /// <typeparam name="TEnum"> Enum type. </typeparam>
-  /// <param name="value"> Enum value. </param>
-  /// <returns>
-  /// Result type text if present; otherwise <c>string.Empty</c>.
-  /// </returns>
-  public static string GetGolfShotResultUnit<TEnum>(this TEnum value)
+    /// <summary>
+    /// Gets the golf-shot result type from <see cref="GolfShotAttribute"/>.
+    /// </summary>
+    /// <typeparam name="TEnum"> Enum type. </typeparam>
+    /// <param name="Value"> Enum value. </param>
+    /// <returns>
+    /// Result type text if present; otherwise <c>string.Empty</c>.
+    /// </returns>
+    public static string GetUnitType<TEnum>(this TEnum Value)
       where TEnum : struct, Enum
   {
-    GolfShotAttribute? attribute = value.GetCustomAttribute<TEnum, GolfShotAttribute>();
-    return attribute?.ResultUnit ?? string.Empty;
+    GolfShotAttribute? attribute = Value.GetCustomAttribute<TEnum, GolfShotAttribute>();
+    return attribute?.UnitType ?? string.Empty;
   }
 
-  /// <summary>
-  /// Gets the DescriptionAttribute value from an enum member.
-  /// </summary>
-  /// <typeparam name="TEnum">Enum type.</typeparam>
-  /// <param name="value">Enum value.</param>
-  /// <returns>Description text if present; otherwise <c>string.Empty</c>.</returns>
-  public static string GetDescription<TEnum>(this TEnum value)
+    /// <summary>
+    /// Gets the DescriptionAttribute value from an enum member.
+    /// </summary>
+    /// <typeparam name="TEnum">Enum type.</typeparam>
+    /// <param name="Value">Enum value.</param>
+    /// <returns>Description text if present; otherwise <c>string.Empty</c>.</returns>
+    public static string GetDescription<TEnum>(this TEnum Value)
       where TEnum : struct, Enum
   {
-    string name = value.ToString();
+    string name = Value.ToString();
     MemberInfo[] members = typeof(TEnum).GetMember(name);
     if (members.Length == 0)
     {

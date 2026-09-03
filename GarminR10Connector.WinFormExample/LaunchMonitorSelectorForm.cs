@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright (c) 2026 Jason Landreth
  *
  * Licensed under the Apache License, Version 2.0 (the ""License"");
@@ -16,16 +16,21 @@
 
 namespace GarminR10Connector.WinFormExample
 {
-  public partial class LaunchMonitorSelectorForm : Form
-  {
-    public LaunchMonitorSelectorForm()
+    public partial class LaunchMonitorSelectorForm : Form
     {
-      InitializeComponent();
-    }
+        public LaunchMonitorSelectorForm()
+        {
+            InitializeComponent();
+        }
 
-    private void panel1_Paint(object sender, PaintEventArgs e)
-    {
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
+
+        private void panel_DoubleClick(object sender, System.EventArgs e)
+        {
+
+        }
     }
-  }
 }

@@ -1,4 +1,4 @@
-﻿
+
 // Copyright 2026 Jason Landreth
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,6 +16,7 @@
 using System.ComponentModel;
 using System.Drawing.Drawing2D;
 using GarminR10Connector.Util;
+using GarminR10Connector.Utilities;
 
 namespace GarminR10Connector.WinFormExample.Controls
 {
@@ -23,7 +24,7 @@ namespace GarminR10Connector.WinFormExample.Controls
     public partial class MetricSelectorCard : UserControl
     {
         private static string FONT_NAME = "Segoe UI";
-        private GarminShotMetric _selectedMetric = GarminShotMetric.BackSpin;
+        private GolfShotMetric _selectedMetric = GolfShotMetric.BackSpin;
         private string _titleText = "BACK SPIN";
         private string _subtitleText = "rpm";
         private string _metricValue = "2,450 rpm";
@@ -61,7 +62,7 @@ namespace GarminR10Connector.WinFormExample.Controls
         [Description("Select the launch monitor metric from the Awesome Golf suite.")]
         [Browsable(true)]
         [DefaultValue(AwesomeGolfMetric.BackSpin)]
-        public GarminShotMetric SelectedMetric
+        public GolfShotMetric SelectedMetric
         {
             get => _selectedMetric;
             set

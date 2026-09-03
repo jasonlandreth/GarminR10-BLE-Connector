@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright (c) 2026 Jason Landreth
  *
  * Licensed under the Apache License, Version 2.0 (the ""License"");
@@ -23,13 +23,13 @@ public enum GolfBallShotType
   [GolfShot("Ball speed in miles per hour", "mph")]
   BallSpeed,
 
-  [GolfShot("Vertical launch angle", "degrees")]
+  [GolfShot("Vertical launch angle", "deg")]
   VerticalLaunchAngle,
 
-  [GolfShot("Horizontal launch direction", "degrees")]
+  [GolfShot("Horizontal launch direction", "deg")]
   HorizontalLaunchAngle,
 
-  [GolfShot("Spin axis", "degrees")]
+  [GolfShot("Spin axis", "deg")]
   SpinAxis,
 
   [GolfShot("Total spin", "rpm")]

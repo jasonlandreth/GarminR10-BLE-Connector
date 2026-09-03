@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright (c) 2026 Jason Landreth
  *
  * Licensed under the Apache License, Version 2.0 (the ""License"");
@@ -35,20 +35,65 @@ namespace GarminR10Connector.WinFormExample
       base.Dispose(disposing);
     }
 
-    #region Windows Form Designer generated code
+        #region Windows Form Designer generated code
 
-    /// <summary>
-    /// Required method for Designer support - do not modify
-    /// the contents of this method with the code editor.
-    /// </summary>
-    private void InitializeComponent()
-    {
-      this.components = new System.ComponentModel.Container();
-      this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(800, 450);
-      this.Text = "SelectorForm";
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.panelBlueTees = new Panel();
+            panelFlightScope = new Panel();
+            panelBlueTees = new Panel();
+            SuspendLayout();
+            // 
+            // panelBlueTees
+            // 
+            this.panelBlueTees.BackgroundImage = Properties.Resources.blue_tee_rain_maker_logo;
+            this.panelBlueTees.BackgroundImageLayout = ImageLayout.Stretch;
+            this.panelBlueTees.Location = new Point(33, 101);
+            this.panelBlueTees.Name = "panelBlueTees";
+            this.panelBlueTees.Size = new Size(341, 100);
+            this.panelBlueTees.TabIndex = 0;
+            this.panelBlueTees.Tag = "Blue Tees";
+            this.panelBlueTees.DoubleClick += this.Panel_DoubleClick;
+            // 
+            // panelFlightScope
+            // 
+            panelFlightScope.BackgroundImage = Properties.Resources.flight_scope_logo;
+            panelFlightScope.BackgroundImageLayout = ImageLayout.Stretch;
+            panelFlightScope.Location = new Point(33, 222);
+            panelFlightScope.Name = "panelFlightScope";
+            panelFlightScope.Size = new Size(341, 100);
+            panelFlightScope.TabIndex = 1;
+            panelFlightScope.Tag = "Flight Scope";
+            panelFlightScope.DoubleClick += Panel_DoubleClick;
+            // 
+            // panel1
+            // 
+            panelBlueTees.BackgroundImageLayout = ImageLayout.Stretch;
+            panelBlueTees.Location = new Point(389, 101);
+            panelBlueTees.Name = "panelBlueTees";
+            panelBlueTees.Size = new Size(341, 100);
+            panelBlueTees.TabIndex = 2;
+            panelBlueTees.Tag = "Blue Tees";
+            // 
+            // SelectorForm
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(panelBlueTees);
+            Controls.Add(panelFlightScope);
+            Controls.Add(this.panelBlueTees);
+            Name = "SelectorForm";
+            Text = "SelectorForm";
+            ResumeLayout(false);
+        }
+
+        #endregion
+        private Panel panelFlightScope;
+        private Panel panelBlueTees;
     }
-
-    #endregion
-  }
 }

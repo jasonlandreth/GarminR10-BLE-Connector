@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright (c) 2026 Jason Landreth
  *
  * Licensed under the Apache License, Version 2.0 (the ""License"");
@@ -14,6 +14,9 @@
  * limitations under the License.
  */
 
+
+using GarminR10Connector.ShotDataResults;
+ 
 
 namespace GarminR10Connector.WinFormExample
 {
@@ -106,7 +109,7 @@ namespace GarminR10Connector.WinFormExample
         Invoke(() =>
               {
             AppendLog($"[Shot] Received shot id {args.Shot.ShotId} ({args.Shot.ShotType})");
-            DisplayShot(args.Shot);
+            DisplayShot((ShotData)args.Shot);
           });
       };
 
@@ -132,7 +135,7 @@ namespace GarminR10Connector.WinFormExample
         lblHorizontalLaunchDirection.Text = $"Horizontal Launch Dir: {ball.HorizontalLaunchDirection:F1}{degrees}";
         lblSpinAxis.Text = $"Spin Axis: {ball.SpinAxis:F1}{degrees}";
         lblTotalSpin.Text = $"Total Spin: {ball.TotalSpin:F0} rpm";
-        lblBackspin.Text = $"Backspin: {ball.Backspin:F0} rpm";
+        lblBackspin.Text = $"Backspin: {ball.BackSpin:F0} rpm";
         lblSideSpin.Text = $"Sidespin: {ball.SideSpin:F0} rpm";
       }
 

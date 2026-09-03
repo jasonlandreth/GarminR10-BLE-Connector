@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright (c) 2026 Jason Landreth
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,6 +20,7 @@ using LaunchMonitor.Proto;
 using System.Collections.Concurrent;
 using System.Text;
 using GarminR10Connector.Util;
+using GarminR10Connector.Utilities;
 
 namespace GarminR10Connector.Ble
 {

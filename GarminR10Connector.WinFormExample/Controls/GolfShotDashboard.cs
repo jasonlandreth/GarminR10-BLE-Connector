@@ -1,4 +1,4 @@
-﻿
+
 // Copyright 2026 Jason Landreth
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,17 +14,19 @@
 // limitations under the License.
 
 using System.ComponentModel; 
-using System.Drawing.Drawing2D; 
+using System.Drawing.Drawing2D;
+using GarminR10Connector.ShotDataResults;
+using ShotData = GarminR10Connector.WinFormExample.DecodeTest.ShotDataTest;
 
 namespace GarminR10Connector.WinFormExample.Controls
 {
     public partial class GolfShotDashboard : UserControl
     {
         private bool _isLeftHanded = false;
-        private GarminShotData _currentShot = new GarminShotData();
+        private ShotData _currentShot = new ShotData();
 
         // Event fired whenever shot data is updated
-        public event EventHandler<GarminShotData> OnShotChanged;
+        public event EventHandler<ShotData> OnShotChanged;
 
         public GolfShotDashboard()
         {
@@ -59,16 +61,16 @@ namespace GarminR10Connector.WinFormExample.Controls
 
         [Category("Golf Simulator Data")]
         [Browsable(false)]
-        public GarminShotData CurrentShot => _currentShot;
+        public ShotData CurrentShot => _currentShot;
 
         #endregion
 
         #region Public Methods
 
         /// <summary>
-        /// Pass a new GarminShotData object to update all metric cards and refresh the 3D ball rotation.
+        /// Pass a new ShotData object to update all metric cards and refresh the 3D ball rotation.
         /// </summary>
-        public void UpdateShotData(GarminShotData shot)
+        public void UpdateShotData(ShotData shot)
         {
             _currentShot = shot ?? throw new ArgumentNullException(nameof(shot));
 
@@ -91,21 +93,21 @@ namespace GarminR10Connector.WinFormExample.Controls
             _pnlCards.Controls.Clear();
 
             // Default set of Awesome Golf metrics
-            GarminShotMetric[] defaultMetrics = new GarminShotMetric[]
+            GolfShotMetric[] defaultMetrics = new GolfShotMetric[]
             {
-                GarminShotMetric.BallSpeed,
-                GarminShotMetric.ClubHeadSpeed,
-                GarminShotMetric.CarryDistance,
-                GarminShotMetric.TotalDistance,
-                GarminShotMetric.VerticalLaunchAngle,
-                GarminShotMetric.HorizontalLaunchAngle,
-                GarminShotMetric.SpinRate,
-                GarminShotMetric.BackSpin,
-                GarminShotMetric.SideSpin,
-                GarminShotMetric.SpinAxis,
-                GarminShotMetric.ClubPath,
-                GarminShotMetric.FaceToTarget,
-                GarminShotMetric.SmashFactor
+                GolfShotMetric.BallSpeed,
+                GolfShotMetric.ClubHeadSpeed,
+                GolfShotMetric.CarryDistance,
+                GolfShotMetric.TotalDistance,
+                GolfShotMetric.VerticalLaunchAngle,
+                GolfShotMetric.HorizontalLaunchAngle,
+                GolfShotMetric.SpinRate,
+                GolfShotMetric.BackSpin,
+                GolfShotMetric.SideSpin,
+                GolfShotMetric.SpinAxis,
+                GolfShotMetric.ClubPath,
+                GolfShotMetric.FaceToTarget,
+                GolfShotMetric.SmashFactor
             };
 
             foreach (var metric in defaultMetrics)
@@ -136,33 +138,33 @@ namespace GarminR10Connector.WinFormExample.Controls
             _pnlCards.ResumeLayout(true);
         }
 
-        private string FormatMetricValue(GarminShotMetric metric, GarminShotData shot)
+        private string FormatMetricValue(GolfShotMetric metric, ShotData shot)
         {
             // Invert lateral signs if in Left-Handed mode
             double sideMultiplier = _isLeftHanded ? -1.0 : 1.0;
 
             switch (metric)
             {
-                case GarminShotMetric.BallSpeed: return $"{shot.BallSpeed:F1} mph";
-                case GarminShotMetric.ClubHeadSpeed: return $"{shot.ClubSpeed:F1} mph";
-                case GarminShotMetric.CarryDistance: return $"{shot.CarryDistance:F0} yds";
-                case GarminShotMetric.TotalDistance: return $"{shot.TotalDistance:F0} yds";
-                case GarminShotMetric.RollDistance: return $"{shot.RollDistance:F0} yds";
-                case GarminShotMetric.SmashFactor: return $"{shot.SmashFactor:F2}";
-                case GarminShotMetric.VerticalLaunchAngle: return $"{shot.LaunchAngle:F1}°";
-                case GarminShotMetric.HorizontalLaunchAngle: return $"{(shot.HorizontalLaunchAngle * sideMultiplier):F1}°";
-                case GarminShotMetric.SpinRate: return $"{shot.SpinRate:F0} rpm";
-                case GarminShotMetric.BackSpin: return $"{shot.BackSpin:F0} rpm";
-                case GarminShotMetric.SideSpin: return $"{(shot.SideSpin * sideMultiplier):F0} rpm";
-                case GarminShotMetric.SpinAxis: return $"{(shot.SpinAxis * sideMultiplier):F1}°";
-                case GarminShotMetric.ApexHeight: return $"{shot.ApexHeight:F0} ft";
-                case GarminShotMetric.FlightTime: return $"{shot.FlightTime:F1} s";
-                case GarminShotMetric.LateralOffline: return $"{(shot.LateralOffline * sideMultiplier):F1} yds";
-                case GarminShotMetric.ClubPath: return $"{(shot.ClubPath * sideMultiplier):F1}°";
-                case GarminShotMetric.FaceToTarget: return $"{(shot.FaceAngle * sideMultiplier):F1}°";
-                case GarminShotMetric.FaceToPath: return $"{(shot.FaceToPath * sideMultiplier):F1}°";
-                case GarminShotMetric.AttackAngle: return $"{shot.AttackAngle:F1}°";
-                case GarminShotMetric.DynamicLoft: return $"{shot.DynamicLoft:F1}°";
+                case GolfShotMetric.BallSpeed: return $"{shot.Ball?.BallSpeed:F1} mph";
+                case GolfShotMetric.ClubHeadSpeed: return $"{shot.Club?.ClubHeadSpeed:F1} mph";
+                case GolfShotMetric.CarryDistance: return $"{shot.Ball?.CarryDistance:F0} yds";
+                case GolfShotMetric.TotalDistance: return $"{shot.Ball?.TotalDistance:F0} yds";
+                case GolfShotMetric.RollDistance: return $"{shot.Ball?.RollDistance:F0} yds";
+                case GolfShotMetric.SmashFactor: return $"{shot.Ball?.SmashFactor:F2}";
+                case GolfShotMetric.VerticalLaunchAngle: return $"{shot.Ball?.VerticalLaunchAngle:F1}°";
+                case GolfShotMetric.HorizontalLaunchAngle: return $"{(shot.Ball?.HorizontalLaunchDirection * sideMultiplier):F1}°";
+                case GolfShotMetric.SpinRate: return $"{shot.Ball?.TotalSpin:F0} rpm";
+                case GolfShotMetric.BackSpin: return $"{shot.Ball?.BackSpin:F0} rpm";
+                case GolfShotMetric.SideSpin: return $"{(shot.Ball?.SideSpin * sideMultiplier):F0} rpm";
+                case GolfShotMetric.SpinAxis: return $"{(shot.Ball?.SpinAxis * sideMultiplier):F1}°";
+                case GolfShotMetric.ApexHeight: return $"{shot.Ball?.ApexHeight:F0} ft";
+                case GolfShotMetric.FlightTime: return $"{shot.Ball?.FlightTime:F1} s";
+                case GolfShotMetric.LateralOffline: return $"{(shot.Ball?.LateralOffline * sideMultiplier):F1} yds";
+                case GolfShotMetric.ClubPath: return $"{(shot.Club?.ClubPath * sideMultiplier):F1}°";
+                case GolfShotMetric.FaceToTarget: return $"{(shot.Club?.FaceAngle * sideMultiplier):F1}°";
+                case GolfShotMetric.FaceToPath: return $"{(shot.Club?.FaceToPath * sideMultiplier):F1}°";
+                case GolfShotMetric.AttackAngle: return $"{shot.Club?.AttackAngle:F1}°";
+                case GolfShotMetric.DynamicLoft: return $"{shot.Club?.DynamicLoft:F1}°";
                 default: return "0.0";
             }
         }
@@ -200,7 +202,7 @@ namespace GarminR10Connector.WinFormExample.Controls
             g.TranslateTransform(center.X, center.Y);
 
             // Invert spin axis rotation angle if left-handed mode is set
-            float effectiveSpinAxis = (float)(_isLeftHanded ? -_currentShot.SpinAxis : _currentShot.SpinAxis);
+            float effectiveSpinAxis = (float)(_isLeftHanded ? -_currentShot?.Ball?.SpinAxis : _currentShot?.Ball?.SpinAxis);
 
             // 1. Rotate Matrix to match Shot's Spin Axis
             g.RotateTransform(effectiveSpinAxis);
@@ -217,7 +219,7 @@ namespace GarminR10Connector.WinFormExample.Controls
             {
                 seamPen.DashStyle = DashStyle.Dash;
 
-                float pitchHeight = radius * (float)Math.Sin(_currentShot.LaunchAngle * Math.PI / 180.0);
+                float pitchHeight = radius * (float)Math.Sin(_currentShot.Ball.VerticalLaunchAngle * Math.PI / 180.0);
                 if (Math.Abs(pitchHeight) < 3f) pitchHeight = 3f;
 
                 g.DrawEllipse(seamPen, -radius + 4, -pitchHeight / 2f, (radius - 4) * 2, pitchHeight);

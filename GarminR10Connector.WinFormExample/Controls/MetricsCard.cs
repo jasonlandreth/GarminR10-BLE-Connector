@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright (c) 2026 Jason Landreth
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,6 +16,7 @@
 
 using System.ComponentModel;
 using GarminR10Connector.Util;
+using GarminR10Connector.Utilities;
 using GarminR10Connector.WinFormExample.Controls.Rendering;
 
 namespace GarminR10Connector.WinFormExample.Controls
@@ -25,9 +26,9 @@ namespace GarminR10Connector.WinFormExample.Controls
   /// </summary>
   public partial class MetricsCard : UserControl
   {
-    private GarminShotMetric _selectedMetric = GarminShotMetric.BallSpeed;
+    private GolfShotMetric _selectedMetric = GolfShotMetric.BallSpeed;
     private string _metricValue = "0.0";
-    private string _resultUnitText = "rpm";
+    private string _unitTypeText = "rpm";
 
     private float _borderWidth = 4f;
     private int _cornerRadius = 14;
@@ -44,8 +45,8 @@ namespace GarminR10Connector.WinFormExample.Controls
     [Category("Golf Metric")]
     [Description("The metric type displayed on this card.")]
     [Browsable(true)]
-    [DefaultValue(typeof(GarminShotMetric), nameof(GarminShotMetric.BallSpeed))]
-    public GarminShotMetric SelectedMetric
+    [DefaultValue(typeof(GolfShotMetric), nameof(GolfShotMetric.BallSpeed))]
+    public GolfShotMetric SelectedMetric
     {
       get => _selectedMetric;
       set
@@ -79,13 +80,13 @@ namespace GarminR10Connector.WinFormExample.Controls
     [Description("Result Type text (e.g. RPM / Degrees).")]
     [Browsable(true)]
     [DefaultValue("rpm")]
-    public string ResultUnitText
+    public string UnitTypeText  
     {
-      get => _resultUnitText;
+      get => _unitTypeText;
       set
       {
-        _resultUnitText = value;
-        _lblResultUnit.Text = value;
+        _unitTypeText = value;
+        _lblUnitType.Text = value;
       }
     }
 
@@ -201,7 +202,7 @@ namespace GarminR10Connector.WinFormExample.Controls
 
       _lblMetricName.BackColor = Color.Transparent;
       _lblValue.BackColor = Color.Transparent;
-      _lblResultUnit.BackColor = Color.Transparent;
+      _lblUnitType.BackColor = Color.Transparent;
 
       UpdateContentPadding();
       UpdateRoundedRegion();

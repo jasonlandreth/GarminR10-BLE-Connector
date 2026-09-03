@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright (c) 2026 Jason Landreth
  *
  * Licensed under the Apache License, Version 2.0 (the ""License"");
@@ -109,6 +109,7 @@ namespace GarminR10Connector
     /// Direction club face is pointing at impact (+ Open, - Closed)
     /// </summary>
     public double FaceAngle { get; set; }
+    
 
     /// <summary>
     /// Difference between Face Angle and Club Path in degrees

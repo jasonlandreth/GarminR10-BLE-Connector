@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright (c) 2026 Jason Landreth
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,6 +18,7 @@ using System.ComponentModel;
 using System.Drawing.Drawing2D;
 using System.Linq;
 using GarminR10Connector.Util;
+using GarminR10Connector.Utilities;
 using GarminR10Connector.WinFormExample.Controls.Rendering;
 
 namespace GarminR10Connector.WinFormExample.Controls
@@ -27,7 +28,7 @@ namespace GarminR10Connector.WinFormExample.Controls
   /// </summary>
   public partial class MetricsCard2 : UserControl
   {
-    private GarminShotMetric _selectedMetric = GarminShotMetric.BallSpeed;
+    private GolfShotMetric _selectedMetric = GolfShotMetric.BallSpeed;
     private string _metricValue = "50";
     private string _valueUnitText = "mph";
 
@@ -48,15 +49,15 @@ namespace GarminR10Connector.WinFormExample.Controls
     [Category("Golf Metric")]
     [Description("The metric type displayed on this card.")]
     [Browsable(true)]
-    [DefaultValue(typeof(GarminShotMetric), nameof(GarminShotMetric.BallSpeed))]
-    public GarminShotMetric SelectedMetric
+    [DefaultValue(typeof(GolfShotMetric), nameof(GolfShotMetric.BallSpeed))]
+    public GolfShotMetric SelectedMetric
     {
       get => _selectedMetric;
       set
       {
         _selectedMetric = value;
         lblMetricName.Text = value.GetTitle();
-        ValueUnitText = _selectedMetric.GetResultUnit();
+        ValueUnitText = _selectedMetric.GetUnitType();
       }
     }
 
