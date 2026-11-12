@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="InTheHand.BluetoothLE" Version="4.0.44" />
+    <PackageReference Include="InTheHand.BluetoothLE" Version="4.0.45" />
     <PackageReference Include="Google.Protobuf" Version="3.36.0" />
     <PackageReference Include="log4net" Version="3.3.2" />
     <PackageReference Include="Grpc.Tools" Version="2.83.0">
